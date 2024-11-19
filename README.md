@@ -18,7 +18,7 @@
      || x^{(k+1)} - x^{(k)} ||_1 \leq \varepsilon
      $$
 
-     Здравствуйте $ x^{(k)} $
+     This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 
      $ x^{(k+1)} $
 
