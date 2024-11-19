@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.linalg import norm
 
-from mathmod.utils import is_symmetric_positive_definite, lu_decomposition, is_diagonally_dominant
+from utils import is_symmetric_positive_definite, lu_decomposition, is_diagonally_dominant
 
 
 def gauss_zeydel(A: np.ndarray, b: np.ndarray, epsilon: float = 1e-6, norma: int = 1):

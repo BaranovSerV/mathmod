@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def lu_decomposition(A: np.ndarray):
     """
     Решение СЛАУ методом LU-разложения.
@@ -27,6 +28,7 @@ def lu_decomposition(A: np.ndarray):
                 L[k][i] = (A[k][i] - sum2) / U[i][i]
 
     return L, U
+
 
 def is_symmetric_positive_definite(A: np.ndarray) -> bool:
     """
