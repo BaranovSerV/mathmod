@@ -18,13 +18,13 @@
      || x^{(k+1)} - x^{(k)} ||_1 \leq \varepsilon
      $$
 
-     This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
+     This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1} + (1+x)^2$.
 
-     $ x^{(k+1)} $
-
-     $ || \cdot ||_p $ 
-
-     $ \varepsilon $ 
+     где:
+     - \( x^{(k)} \) — приближённое решение на \(k\)-й итерации;
+     - \( x^{(k+1)} \) — приближённое решение на следующей итерации;
+     - \( || \cdot ||_p \) — норма вектора (например, \( p = 1, 2 \) или \( \infty \));
+     - \( \varepsilon \) — заданная точность.
 
 
 2. **Метод Якоби**
