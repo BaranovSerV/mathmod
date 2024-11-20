@@ -112,7 +112,7 @@ def bisection(f, a, b, epsilon=1e-6):
     i = 0
     c = a
 
-    while (b - a) / 2 > epsilon:
+    while (b - a) > 2 * epsilon:
         c = (a + b) / 2  
         if f(c) == 0:  
             break
