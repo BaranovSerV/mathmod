@@ -95,6 +95,12 @@ $$
   - `x` - Начальное приближение корня;
   - `epsilon` - Заданная точность (по умолчанию $10^{-6}$). 
   
+```python
+from mathmod.nonlinear_equations import simplified_newton
+
+x, iteration = simplified_newton(f, df, x0, epsilon=1e-6)
+```
+
 <b>Расчетная формула:</b>
   
 $$
@@ -114,12 +120,18 @@ $$
 ### 3. Метод секущих
 - Не требует аналитической производной функции.
 - Использует приближённую производную.
-- **Функция:** `secant(f, x__minus_1, x_n, epsilon=1e-6)`
+- **Функция:** `secant(f, x_minus_1, x_n, epsilon=1e-6)`
 - **Описание параметров:**
   - `f` -  Функция, корень которой нужно найти;
   - `x_minus_1` - Первой начальное приближение;
   - `x` - Второе начальное приближение;
   - `epsilon` - Заданная точность (по умолчанию $10^{-6}$). 
+
+```python
+from mathmod.nonlinear_equations import secant
+
+x, iteration = secant(f, x_minus_1, x_n, epsilon=1e-6)
+```
 
 <b>Расчетная формула:</b>
   
@@ -147,6 +159,12 @@ $$
 - `b`: Правый конец начального отрезка локализации корня;
 - `epsilon`: Заданная точность (по умолчанию $10^{-6}$).
 
+```python
+from mathmod.nonlinear_equations import false_position
+
+x, iteration = false_position(f, a, b, epsilon=1e-6)
+```
+
 <b>Расчетная формула:</b>
   
 $$
@@ -173,6 +191,12 @@ $$
 - `b` - Правый конец начального отрезка локализации корня;
 - `epsilon` - Заданная точность (по умолчанию $10^{-6}$).
 
+```python
+from mathmod.nonlinear_equations import bisection
+
+x, iteration = bisection(f, a, b, epsilon=1e-6)
+```
+
 **Расчетная формула:**
 
 $$
@@ -196,6 +220,12 @@ $$
 - `phi` - Итерационная функция $\phi(x)$, преобразующая исходное уравнение $f(x) = 0$ к виду $x = \phi(x)$;
 - `x0` - Начальное приближение корня;
 - `epsilon` - Заданная точность (по умолчанию  $10^{-6}$).
+
+```python
+from mathmod.nonlinear_equations import simple_iteration_method
+
+x, iteration = simple_iteration_method(phi, x0, epsilon=1e-6)
+```
 
 **Расчетная формула:**
 
