@@ -381,14 +381,14 @@ $$
     \vdots \\
     \overline{{x}}_m
 \end{bmatrix}  \quad
-\mathbf{\overline{{x}}} =
+\mathbf{x^{*}} =
 \begin{bmatrix}
     x^{*}_1 \\
     x^{*}_2 \\
     x^{*}_3 \\
     \vdots \\
     x^{*}_m
-\end{bmatrix}  \quad
+\end{bmatrix}
 $$
 
 Тогда вектор $\epsilon = \overline{{x}} - x^{*}$ называется вектором погрешности.
