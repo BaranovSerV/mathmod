@@ -64,6 +64,12 @@ $$
   - `x` - Начальное приближение корня;
   - `epsilon` - Заданная точность (по умолчанию $10^{-6}$). 
 
+```python
+from mathmod.nonlinear_equations import newton
+
+x, iteration = newton(f, df, x, epsilon=1e-6)
+```
+
 <b>Расчетная формула:</b>
   
 $$
