@@ -1,4 +1,4 @@
-from linear_systems import three_diag, jacobi, gauss_zeydel
+from linear_systems import three_diag, jacobi, gauss_zeydel, relaxation_method
 
 import numpy as np
 
@@ -10,8 +10,8 @@ A = np.array(
 
 b = np.array([2, 3.3, 2.6, 7.2])
 
-print(three_diag(A,b))
+print(jacobi(A,b, norma=np.inf))
 
-print(jacobi(A,b))
+print(gauss_zeydel(A,b, norma=np.inf))
 
-print(gauss_zeydel(A,b))
+print(relaxation_method(A,b, omega=0.9, norma=np.inf))
