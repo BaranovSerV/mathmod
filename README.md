@@ -652,8 +652,12 @@ l_{11} & l_{21} &  l_{31} & \dots & l_{m1}\\
 $$
 
 $$
-l^2_{k1} + l^2_{k2} + \dots + l^2_{kk} = a_{kk} \quad l_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} l^{2}_{k,j}} \quad k = 2 \dots m
+l^2_{k1} + l^2_{k2} + \dots + l^2_{kk} = a_{kk} 
 $$ 
+
+$$
+l_{kk} = \sqrt{a_{kk} - \sum_{j=1}^{k-1} l^{2}_{k,j}} \quad k = 2 \dots m
+$$
 
 $$
 l_{ik} = \frac{a_{i,k} - \sum_{j-1}^{k-1} l_{i,j} \cdot l_{l,k}}{l_{k,k}} \quad i = k + 1, \dots m
