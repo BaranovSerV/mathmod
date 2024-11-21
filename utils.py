@@ -3,30 +3,23 @@ import numpy as np
 
 def lu_decomposition(A: np.ndarray):
     """
-    Решение СЛАУ методом LU-разложения.
+    LU-разложение матрицы A на матрицы L и U.
+    A = LU, где L - нижняя треугольная матрица, U - верхняя треугольная матрица.
 
-    :param A: матрица левой части
-    :param b: массив правой части
-    :return: вектор решения (размером n)
+    :param A: Квадратная матрица (n x n)
+    :return: матрицы L и U
     """
     n = len(A)
-    L = np.zeros_like(A)
-    U = np.zeros_like(A)
-
+    L = np.eye(n, dtype=np.float64) 
+    U = np.zeros_like(A, dtype=np.float64)  
     for i in range(n):
         # Вычисляем элементы верхней треугольной матрицы U
-        for k in range(i, n):
-            sum1 = sum(L[i][j] * U[j][k] for j in range(i))
-            U[i][k] = A[i][k] - sum1
+        for j in range(i, n):
+            U[i, j] = A[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
 
         # Вычисляем элементы нижней треугольной матрицы L
-        for k in range(i, n):
-            if i == k:
-                L[i][i] = 1  # Диагональные элементы L равны 1
-            else:
-                sum2 = sum(L[k][j] * U[j][i] for j in range(i))
-                L[k][i] = (A[k][i] - sum2) / U[i][i]
-
+        for j in range(i + 1, n):
+            L[j, i] =  (A[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
     return L, U
 
 

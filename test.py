@@ -1,13 +1,15 @@
-from linear_systems import gauss_zeydel
+from linear_systems import three_diag
 
 import numpy as np
 
 A = np.array(
-    [[104, -4, 6, 2],
-     [9, 95, 1, 0],
-     [-10, -5, 100, 2],
-     [-2, 0, 5, 64]])
+    [[5, -1, 0, 0],
+     [2, 4.6, -1, 0],
+     [0, 2, 3.6, -0.8],
+     [0, 0, 3, 4.4]])
 
-b = np.array([-826, -452, 90, -304])
+b = np.array([2, 3.3, 2.6, 7.2])
 
-print(gauss_zeydel(A, b))
+print(three_diag(A,b))
+
+

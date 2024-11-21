@@ -105,32 +105,27 @@ def cholecky(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     return x
 
 
-def lu(A: np.ndarray, b: np.ndarray) -> np.ndarray:
+def lu_solve(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
-    Решение СЛАУ:
-    Метод LU - разложения
-    :param A:
-    :param b:
-    :return:
+    Решение системы линейных уравнений Ax = b методом LU-разложения.
+
+    :param A: Квадратная матрица (n x n)
+    :param b: Вектор правой части (размер n)
+    :return: Вектор решения x
     """
-
-    A = A.copy()
-    b = b.copy()
-
     L, U = lu_decomposition(A)
     n = len(b)
-    # Решаем Ly = b
-    y = np.zeros_like(b)
+    # Прямой ход: решаем Ly = b
+    y = np.zeros_like(b, dtype=np.float64)
     for i in range(n):
         y[i] = b[i] - np.dot(L[i, :i], y[:i])
 
-    # Решаем Ux = y
-    x = np.zeros_like(b)
+    # Обратный ход: решаем Ux = y
+    x = np.zeros_like(b, dtype=np.float64)
     for i in range(n - 1, -1, -1):
         x[i] = (y[i] - np.dot(U[i, i + 1:], x[i + 1:])) / U[i, i]
 
     return x
-
 
 def gauss_single_division(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
@@ -155,4 +150,48 @@ def gauss_single_division(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     x = np.zeros(n)
     for i in range(n - 1, -1, -1):
         x[i] = (b[i] - np.dot(A[i, i + 1:], x[i + 1:])) / A[i, i]
+    return x
+
+
+def three_diag(A: np.ndarray, b: np.ndarray) -> np.ndarray:
+    """
+    Метод прогонки для решения СЛАУ с трехдиагональной матрицей A.
+
+    :param A: трехдиагональная матрица (размер n x n)
+    :param b: правая часть (вектор размер n)
+    :return: решение системы (вектор размер n)
+    """
+    n = len(A)
+
+    # Извлекаем диагонали
+    a = np.zeros(n) 
+    d = np.zeros(n)  
+    c = np.zeros(n)  
+
+    for i in range(n):
+        d[i] = A[i, i]
+        if i > 0:
+            a[i] = A[i, i - 1]
+        if i < n - 1:
+            c[i] = A[i, i + 1]
+
+    # Прямой ход
+    alpha = np.zeros(n)
+    beta = np.zeros(n)
+
+    alpha[0] = -c[0] / d[0]
+    beta[0] = b[0] / d[0]
+
+    for i in range(1, n):
+        denominator = d[i] + a[i] * alpha[i - 1]
+        alpha[i] = -c[i] / denominator if i < n - 1 else 0  # Последний alpha не используется
+        beta[i] = (b[i] - a[i] * beta[i - 1]) / denominator
+
+    # Обратный ход
+    x = np.zeros(n)
+    x[-1] = beta[-1]
+
+    for i in range(n - 2, -1, -1):
+        x[i] = alpha[i] * x[i + 1] + beta[i]
+
     return x
