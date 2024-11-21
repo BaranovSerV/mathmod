@@ -475,7 +475,7 @@ x = gauss_single_division(A, b)
 
 ---
 
-Пример:
+**Пример:**
 
 $$
 \begin{aligned}
@@ -648,8 +648,17 @@ l_{11} & l_{21} &  l_{31} & \dots & l_{m1}\\
 0 & 0 & l_{33} & \dots & l_{m3} \\
 \dots & \dots & \dots & \dots & \dots \\
 0 & 0 & 0 & \dots & l_{mm} \\
+\end{bmatrix} =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & \dots & a_{1m} \\
+    a_{21} & a_{22} & a_{23} & \dots & a_{2m} \\
+    a_{31} & a_{32} & a_{33} & \dots & a_{3m} \\
+    \dots & \dots & \dots & \dots & \dots \\
+    a_{m1} & a_{m2} & a_{m3} & \dots & a_{mm}
 \end{bmatrix}
 $$
+
+Отсюда: 
 
 $$
 l^2_{k1} + l^2_{k2} + \dots + l^2_{kk} = a_{kk} 
@@ -662,6 +671,36 @@ $$
 $$
 l_{ik} = \frac{a_{i,k} - \sum_{j-1}^{k-1} l_{i,j} \cdot l_{l,k}}{l_{k,k}} \quad i = k + 1, \dots m
 $$
+
+Если разложение получено, то решение системы:
+
+$$
+Ly = b \quad 
+L^{T}x = y
+$$
+
+---
+
+**Пример:**
+
+Рассмотрим систему:
+
+$$
+A = 
+\begin{bmatrix}
+6.25 & -1 & 0.5 \\
+-1 & 5 & 2.12 \\
+0.5 & 2.12 & 3.6
+\end{bmatrix} \quad
+b = 
+\begin{bmatrix}
+7.5\\
+-8.68\\
+-0.24
+\end{bmatrix}
+$$
+
+---
 
 #### 3. Метод LU-разложения
 - **Функция:** `lu(A, b)`
