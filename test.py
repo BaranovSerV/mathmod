@@ -1,4 +1,4 @@
-from linear_systems import three_diag
+from linear_systems import three_diag, jacobi, gauss_zeydel
 
 import numpy as np
 
@@ -12,4 +12,6 @@ b = np.array([2, 3.3, 2.6, 7.2])
 
 print(three_diag(A,b))
 
+print(jacobi(A,b))
 
+print(gauss_zeydel(A,b))

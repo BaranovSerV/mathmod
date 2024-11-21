@@ -37,7 +37,7 @@ def gauss_zeydel(A: np.ndarray, b: np.ndarray, epsilon: float = 1e-6, norma: int
     return x, iteration_count
 
 
-def jacobi(A: np.ndarray, b: np.ndarray, epsilon=1e-6, norma=1) -> tuple:
+def jacobi(A: np.ndarray, b: np.ndarray, epsilon=1e-6, norma=1):
     """
     Решение СЛАУ методом Якоби.
     :param A: Матрица коэффициентов системы
@@ -46,25 +46,22 @@ def jacobi(A: np.ndarray, b: np.ndarray, epsilon=1e-6, norma=1) -> tuple:
     :param norma: Норма для оценки погрешности (например, 1, 2, np.inf)
     :return: Решение системы (вектор x) и количество итераций
     """
-    n = len(b)
-    x = np.zeros_like(b)  # Начальное приближение
     iteration_count = 0
-
-    # Разделяем A на диагональную, верхнюю и нижнюю части
-    D = np.diag(A)  # Диагональные элементы
-    R = A - np.diagflat(D)  # Остальная часть матрицы
-
+    n = len(b)
+    x = np.zeros_like(b, dtype=np.float64)  # Начальное приближение (нулевой вектор)
+    x_new = np.zeros_like(x)
+    
     while True:
-        x_new = (b - np.dot(R, x)) / D  # Основная формула метода Якоби
-
-        # Проверяем условие выхода
-        if norm(x_new - x, norma) <= epsilon:
-            break
-
-        x = x_new
         iteration_count += 1
+        for i in range(n):
+            s = sum(A[i, j] * x[j] for j in range(n) if j != i)  
+            x_new[i] = (b[i] - s) / A[i, i]
+        
+        if np.linalg.norm(x_new - x, norma) < epsilon:
+            return x_new, iteration_count
+        
+        x = x_new.copy()
 
-    return x_new, iteration_count
 
 
 def cholecky(A: np.ndarray, b: np.ndarray) -> np.ndarray:
