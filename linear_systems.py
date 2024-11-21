@@ -69,13 +69,13 @@ def relaxation_method(A, b, omega=1.0, epsilon=1e-6, norma=1):
     :param A: Матрица коэффициентов (n x n).
     :param b: Вектор правой части (n).
     :param omega: Параметр релаксации (по умолчанию 1.0 — метод Зейделя).
-    :param tol: Точность решения (по умолчанию 1e-6).
+    :param epsilon: Точность решения (по умолчанию 1e-6).
     :return: Приближенное решение x.
     """
     iteration_count = 0
     n = len(b)
     x = np.zeros_like(b, dtype=np.float64)  
-    
+
     while True:
         x_new = np.copy(x)  
         iteration_count += 1
