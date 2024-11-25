@@ -1,17 +1,16 @@
-from linear_systems import three_diag, jacobi, gauss_zeydel, relaxation_method
+from interpolate import lagrange
+from matplotlib import pyplot as plt
+import numpy as np  
 
-import numpy as np
+list_x = [-1, -0.7, -0.43, -0.14, -0.14, 0.43, 0.71, 1, 1.29, 1.57, 1.86, 2.14, 2.43, 2.71, 3]
+list_y = [-2.25, -0.77, 0.21, 0.44, 0.64, 0.03, -0.22, -0.84, -1.2, -1.03, -0.37, 0.61, 2.67, 5.04, 8.90]
 
-A = np.array(
-    [[5, -1, 0, 0],
-     [2, 4.6, -1, 0],
-     [0, 2, 3.6, -0.8],
-     [0, 0, 3, 4.4]])
+L = lagrange(list_x, list_y)
 
-b = np.array([2, 3.3, 2.6, 7.2])
+x = np.linspace(-3, 3, 100)
+y = [L(x_i) for x_i in x] 
 
-print(jacobi(A,b, norma=np.inf))
-
-print(gauss_zeydel(A,b, norma=np.inf))
-
-print(relaxation_method(A,b, omega=0.9, norma=np.inf))
+plt.plot(x, y)
+plt.scatter(list_x, list_y)
+plt.grid(True) 
+plt.show()
