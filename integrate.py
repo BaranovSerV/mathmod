@@ -1,5 +1,6 @@
 from typing import Callable
 
+
 def right_rectangles(f: Callable[[float], float], a: float, b: float, n: int) -> float:
     """
     Вычисляет определенный интеграл методом правых прямоугольников.
