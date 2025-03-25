@@ -5,7 +5,7 @@ def simplified_newton(
     f: Callable, 
     df: Callable, 
     x0: float, 
-    epsilon=1e-6
+    epsilon: float = 1e-6
 ) -> tuple[float, int]:
     """
     Упрощённый метод Ньютона для нахождения корня уравнения f(x) = 0.

@@ -1,4 +1,10 @@
-def simple_iteration_method(phi, x0, epsilon=1e-6):
+from typing import Callable
+
+
+def simple_iteration_method(
+    phi: Callable, 
+    x0: float, 
+    epsilon: float = 1e-6) -> tuple[float, int]:
     """
     Метод простой итерации для решения нелинейного уравнения.
     
@@ -6,7 +12,7 @@ def simple_iteration_method(phi, x0, epsilon=1e-6):
     :param x0: начальное приближение.
     :param epsilon: точность решения (по умолчанию 1e-6).
     
-    :return: Кортеж из двух значений: корень уравнения и количество итераций, выполненных для нахождения решения.
+    :return: Приближённое значение корня и количество итераций.
     """
 
     i = 0
