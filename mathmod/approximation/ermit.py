@@ -1,4 +1,4 @@
-def polinomial_ermit(
+def ermit_polynomial(
     x: float, 
     x_i: float,
     x_minus_1, 
