@@ -7,6 +7,10 @@ from mathmod.approximation.fundamental_cubic_spline import (
     compute_fundamental_cubic_spline_coeffs,
     fundamental_cubic_spline
 )
+from mathmod.approximation.natural_cubic_spline import (
+    compute_natural_cubic_spline_coeffs,
+    natural_cubic_spline
+)
 
 __all__ = [
     "linear_spline", 
@@ -17,5 +21,7 @@ __all__ = [
     "finite_differences",
     "quadratic_spline_with_an_additional_condition",
     "compute_fundamental_cubic_spline_coeffs",
-    "fundamental_cubic_spline"
+    "fundamental_cubic_spline",
+    "natural_cubic_spline",
+    "compute_natural_cubic_spline_coeffs"
 ]
