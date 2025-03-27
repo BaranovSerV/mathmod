@@ -10,6 +10,7 @@ def lu_solve(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     L, U = lu_decomposition(A)
     n = len(b)
+
     # Прямой ход: решаем Ly = b
     y = np.zeros_like(b, dtype=np.float64)
     for i in range(n):
@@ -35,11 +36,11 @@ def lu_decomposition(A: np.ndarray):
     L = np.eye(n, dtype=np.float64) 
     U = np.zeros_like(A, dtype=np.float64)  
     for i in range(n):
-        # Вычисляем элементы верхней треугольной матрицы U
+        # Вычисляем элементы U
         for j in range(i, n):
             U[i, j] = A[i, j] - sum(L[i, k] * U[k, j] for k in range(i))
 
-        # Вычисляем элементы нижней треугольной матрицы L
+        # Вычисляем элементы L
         for j in range(i + 1, n):
             L[j, i] =  (A[j, i] - sum(L[j, k] * U[k, i] for k in range(i))) / U[i, i]
     return L, U

@@ -13,7 +13,7 @@ def jacobi(A: np.ndarray, b: np.ndarray, epsilon=1e-6, norma=1):
     """
     iteration_count = 0
     n = len(b)
-    x = np.zeros_like(b, dtype=np.float64)  # Начальное приближение (нулевой вектор)
+    x = np.zeros_like(b, dtype=np.float64)  
     x_new = np.zeros_like(x)
     
     while True:

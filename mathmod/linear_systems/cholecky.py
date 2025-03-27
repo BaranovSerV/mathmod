@@ -10,7 +10,6 @@ def cholecky(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     :return: Вектор решения (размером n)
     """
 
-    # Проверка симметрично положительно определённой матрицы
     if not is_symmetric_positive_definite(A):
         raise ValueError("Матрица должна быть симметрично положительно определённой!")
     A = A.copy()

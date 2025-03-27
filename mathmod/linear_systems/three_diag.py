@@ -11,7 +11,6 @@ def three_diag(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     n = len(A)
 
-    # Извлекаем диагонали
     a = np.zeros(n) 
     d = np.zeros(n)  
     c = np.zeros(n)  
