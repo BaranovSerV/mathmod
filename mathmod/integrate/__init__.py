@@ -5,6 +5,7 @@ from mathmod.integrate.trapezoidal import trapezoidal
 from mathmod.integrate.simpson import simpson
 from mathmod.integrate.rule_3_8 import rule_3_8
 from mathmod.integrate.veddle import veddle
+from mathmod.integrate.milne import milne
 
 
 __all__ = [
@@ -14,5 +15,6 @@ __all__ = [
     "trapezoidal",
     "simpson",
     "rule_3_8",
-    "veddle"
+    "veddle",
+    "milne"
 ]
