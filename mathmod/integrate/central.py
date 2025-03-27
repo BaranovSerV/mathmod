@@ -1,17 +1,23 @@
 from typing import Callable
 
 
-def central(a: float, k: int, func: Callable[[float], float]) -> float:
+def central(f: Callable[[float], float], a: float, b: float, n: int) -> float:
     """
-    Вычисляет приближенное значение производной методом центральных разностей.
+    Вычисляет определенный интеграл методом левых прямоугольников.
 
-    Аргументы:
-        a (float): Точка, в которой вычисляется производная
-        k (int): Параметр точности (определяет шаг как 10^(-k))
-        func (Callable[[float], float]): Функция, производную которой нужно найти
+    
+    param f: (Callable[[float], float]): Интегрируемая функция
+    param a: (float): Нижний предел интегрирования
+    param b: (float): Верхний предел интегрирования
+    param n: (int): Количество прямоугольников (интервалов)
 
-    Возвращает:
-        float: Приближенное значение производной в точке a
+    return:
+        float: Приближенное значение определенного интеграла
+    Точность метода: 2
     """
-    h = 10**(-k)
-    return (func(a + h) - func(a-h)) / (2 * h)
+    h = (b - a) / n
+    I = 0
+    for i in range(n):
+
+        I += f(a + h / 2 + i * h)
+    return I * h

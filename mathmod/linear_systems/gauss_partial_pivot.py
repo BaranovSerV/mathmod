@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def gauss_partial_pivot(a, b):
     n = len(b)
     a = np.copy(a)

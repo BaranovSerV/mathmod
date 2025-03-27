@@ -38,3 +38,20 @@ def cholecky(A: np.ndarray, b: np.ndarray) -> np.ndarray:
 
     return x
 
+
+def is_symmetric_positive_definite(A: np.ndarray) -> bool:
+    """
+    Проверяет, является ли матрица симметрично положительно определённой.
+
+    :param A: Квадратная матрица
+    :return: True, если матрица симметрично положительно определённая, иначе False
+    """
+    if not np.allclose(A, A.T):
+        return False
+    try:
+        np.linalg.cholesky(A)
+        return True
+    except np.linalg.LinAlgError:
+        return False
+
+

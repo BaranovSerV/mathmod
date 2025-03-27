@@ -1,8 +1,10 @@
 import numpy as np
 
+
 def jacobi(A: np.ndarray, b: np.ndarray, epsilon=1e-6, norma=1):
     """
     Решение СЛАУ методом Якоби.
+
     :param A: Матрица коэффициентов системы
     :param b: Вектор свободных членов
     :param epsilon: Заданная точность

@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.linalg import norm
 
 
 def gauss_zeydel(A: np.ndarray, b: np.ndarray, epsilon: float = 1e-6, norma: int = 1):
@@ -13,8 +14,6 @@ def gauss_zeydel(A: np.ndarray, b: np.ndarray, epsilon: float = 1e-6, norma: int
     A = A.copy()
     b = b.copy()
 
-    # if not is_diagonally_dominant(A):
-        # raise ValueError("Отсутствует диагональное преобладание матрицы!")
 
     n = len(b)
     x = np.zeros_like(b)
