@@ -5,7 +5,7 @@ def simplified_newton(
     f: Callable, 
     df: Callable, 
     x0: float, 
-    epsilon=1e-6
+    epsilon: float = 1e-6
 ) -> tuple[float, int]:
     """
     Упрощённый метод Ньютона для нахождения корня уравнения f(x) = 0.
@@ -14,6 +14,7 @@ def simplified_newton(
     :param df: Производная функции f.
     :param x0: Начальное приближение.
     :param epsilon: Заданная точность (по умолчанию 1e-6).
+
     :return: Приближённое значение корня и количество итераций.
     """
 
