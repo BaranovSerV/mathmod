@@ -1,1 +1,1 @@
-from mathmod.integrate import *
+
