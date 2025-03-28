@@ -1,5 +1,3 @@
-![Обложка](images/Leonardo_Phoenix_Create_a_visually_striking_cover_for_Mathmod_1.jpg)
-
 # mathmod - библиотека программ для численного моделирования
 
 ## Для просмотра работы методов можно перети в папку ```tests```
